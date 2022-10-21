@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
+
+.nav-text {
+    transition: color ease-in-out .2s;
+}
+
+.text-head::before,
+.text-head::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 60px;
+    background-color: rgba(0, 0, 0, .77);
+}
+
+
+.x-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
