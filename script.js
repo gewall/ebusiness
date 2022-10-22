@@ -48,7 +48,7 @@ const showOurProductList = () => {
   catalogList.map((item) => {
     ourProductId.innerHTML += `
     <div class="col">
-          <div class="d-flex flex-column x-card" style="width: 12rem;">
+          <div class="d-flex flex-column x-card" >
               <img src="https://via.placeholder.com/1920x1200.png?text=${
                 item.nama
               }" class="card-img-top "
@@ -76,7 +76,7 @@ const showHeroProductList = () => {
   catalogList.map((item) => {
     heroProductId.innerHTML += `
     <div class="col">
-          <div class="d-flex flex-column x-card bg-white" style="width: 12rem;">
+          <div class="d-flex flex-column x-card bg-white" >
               <img src="https://via.placeholder.com/1920x1200.png?text=${
                 item.nama
               }" class="card-img-top "
