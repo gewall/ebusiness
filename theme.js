@@ -28,7 +28,7 @@ const navbarHandler = () => {
     navId.classList.remove("bg-light");
     navId.classList.add("bg-transparent");
     for (let i = 0; i < navText.length; i++) {
-      navText[i].style.color = "white";
+      navText[i].style.color = "rgba(0,0,0,.77)";
     }
   }
 };

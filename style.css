@@ -8,6 +8,7 @@ html,
 body {
     font-family: 'Poppins', sans-serif;
     font-family: 'Raleway', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .nav-text {
@@ -23,6 +24,15 @@ body {
     background-color: rgba(0, 0, 0, .77);
 }
 
+.x-card {
+    width: 12rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .x-card {
+      width: 100%;
+    }
+  }
 
 .x-card-body {
     display: flex;
