@@ -1,3 +1,6 @@
+let detailData = {
+  produkId: 0,
+};
 const catalogList = [
   {
     id: 0,
@@ -13,6 +16,7 @@ const catalogList = [
       },
     ],
     imgs: ["ruby"],
+    stok: 20,
   },
   {
     id: 1,
@@ -28,6 +32,7 @@ const catalogList = [
       },
     ],
     imgs: ["epsile led", "epsile non"],
+    stok: 20,
   },
   {
     id: 2,
@@ -43,6 +48,7 @@ const catalogList = [
       },
     ],
     imgs: ["hexagon led", "hexagon non"],
+    stok: 20,
   },
   {
     id: 3,
@@ -62,6 +68,7 @@ const catalogList = [
       },
     ],
     imgs: ["cloud kecil", "cloud besar", "cloud lengkap"],
+    stok: 20,
   },
   {
     id: 4,
@@ -77,6 +84,7 @@ const catalogList = [
       },
     ],
     imgs: ["bloom 15", "bloom 20"],
+    stok: 20,
   },
   {
     id: 5,
@@ -92,6 +100,7 @@ const catalogList = [
       },
     ],
     imgs: ["bround 15", "bround 20"],
+    stok: 20,
   },
   {
     id: 6,
@@ -115,6 +124,7 @@ const catalogList = [
       },
     ],
     imgs: ["ariel"],
+    stok: 20,
   },
   {
     id: 7,
@@ -127,6 +137,7 @@ const catalogList = [
       { tipe: "Hati", harga: 70000 },
     ],
     imgs: ["bulat", "hati"],
+    stok: 20,
   },
   {
     id: 8,
@@ -137,6 +148,7 @@ const catalogList = [
       },
     ],
     imgs: ["gantung"],
+    stok: 20,
   },
   {
     id: 9,
@@ -152,17 +164,130 @@ const catalogList = [
       },
     ],
     imgs: ["gold", "silver"],
+    stok: 20,
   },
 ];
 
+const handleTipe = () => {
+  const type = document.querySelectorAll('input[type="radio"]');
+
+  type.forEach((ev) => {
+    ev.addEventListener("click", (e) => {
+      const test = document.querySelector('input[name="btnradio"]:checked');
+      setPrice(test.value);
+    });
+  });
+};
+
+const setPrice = (id) => {
+  const params = window.location.search;
+  const search = new URLSearchParams(params);
+  const idp = search.get("id");
+
+  const item = catalogList.find((i) => parseInt(i.id) === parseInt(idp));
+  console.log(id);
+  const harga = document.getElementById("harga-produk");
+  harga.innerText = new Intl.NumberFormat("ID-id", {
+    style: "currency",
+    currency: "IDR",
+  }).format(item.pilihan[id]?.harga);
+};
+
 const getDetailProduct = () => {
+  const nama = document.getElementById("nama-produk");
+  const stok = document.getElementById("stok-produk");
+  const slide = document.getElementById("slide-produk");
+
+  const pilihan = document.getElementById("pilihan-produk");
   const params = window.location.search;
   const search = new URLSearchParams(params);
   const id = search.get("id");
 
   const item = catalogList.find((i) => parseInt(i.id) === parseInt(id));
 
-  console.log(item);
+  item.pilihan.map((i, _) => {
+    pilihan.innerHTML += `<input type="radio" class="btn-check " name="btnradio" id="btnradio${
+      _ + 1
+    }" autocomplete="off" value="${_}">
+    <label class="btn btn-outline-primary" for="btnradio${_ + 1}">${
+      i.tipe
+    }</label>`;
+  });
+  nama.innerText = item.nama.toString();
+  stok.innerText = "Stok Tersedia " + item.stok.toString();
+
+  item.imgs.forEach((i) => {
+    slide.innerHTML += ` <div class="carousel-item active">
+    <img src="../imgs/${i}.jpg" class="d-block w-100" alt="tes" data-bs-interval="3000">
+</div>`;
+  });
 };
 
+const showOurProductList = () => {
+  const ourProductId = document.getElementById("list-produk-kami");
+  catalogList.slice(0, 5).map((item) => {
+    ourProductId.innerHTML += `
+    <div class="col">
+          <div class="d-flex flex-column x-card" >
+              <img src="../imgs/${item.imgs[0]}.jpg" class="card-img-top "
+                  style="height: 280px; object-fit: cover;" alt="...">
+              <div class="card-body x-card-body my-2">
+                  <h5 class="fs-5">${item.nama}</h5>
+                  <h4 class="fs-6 text-muted"  style="word-break:break-word;">${item.pilihan
+                    .map((i) => i.tipe)
+                    .join(" | ")}</h4>
+                  <h4 class="fs-5">${new Intl.NumberFormat("ID-id", {
+                    style: "currency",
+                    currency: "IDR",
+                  }).format(item.pilihan[0].harga)}</h4>
+                  <a class="text-dark btn btn-transparent " href="pages/detail.html?id=${
+                    item.id
+                  }"><span class="text-decoration-underline">Tambah
+                          Keranjang</span></a>
+              </div>
+          </div>
+      </div>
+    `;
+  });
+};
+
+const showHeroProductList = () => {
+  const heroProductId = document.getElementById("list-produk-hero");
+  catalogList.slice(0, 2).map((item) => {
+    heroProductId.innerHTML += `
+    <div class="col">
+          <div class="d-flex flex-column x-card bg-white" >
+              <img src="../imgs/${item.imgs[0]}.jpg" class="card-img-top "
+                  style="height: 280px; object-fit: cover;" alt="...">
+              <div class="card-body x-card-body my-2">
+                  <h5 class="fs-5">${item.nama}</h5>
+                  <h4 class="fs-6 text-muted"  style="word-break:break-word;">${item.pilihan
+                    .map((i) => i.tipe)
+                    .join(" | ")}</h4>
+                  <h4 class="fs-5">${new Intl.NumberFormat("ID-id", {
+                    style: "currency",
+                    currency: "IDR",
+                  }).format(item.pilihan[0].harga)}</h4>
+                  <a class="text-dark btn btn-transparent " href="pages/detail.html?id=${
+                    item.id
+                  }"><span class="text-decoration-underline">Tambah
+                          Keranjang</span></a>
+              </div>
+          </div>
+      </div>
+    `;
+  });
+};
+
+const tooltipTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+  (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+);
+
+showHeroProductList();
+showOurProductList();
 getDetailProduct();
+handleTipe();
+setPrice(0);
