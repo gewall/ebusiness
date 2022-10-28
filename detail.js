@@ -197,6 +197,7 @@ const getDetailProduct = () => {
   const nama = document.getElementById("nama-produk");
   const stok = document.getElementById("stok-produk");
   const slide = document.getElementById("slide-produk");
+  const deskripsi = document.getElementById("deskripsi-produk");
 
   const pilihan = document.getElementById("pilihan-produk");
   const params = window.location.search;
@@ -214,7 +215,8 @@ const getDetailProduct = () => {
     }</label>`;
   });
   nama.innerText = item.nama.toString();
-  stok.innerText = "Stok Tersedia " + item.stok.toString();
+  stok.innerText = item.stok.toString() + " Stok Tersedia";
+  deskripsi.innerText = "Tidak ada deskripsi!";
 
   item.imgs.forEach((i) => {
     slide.innerHTML += ` <div class="carousel-item active">
@@ -240,7 +242,7 @@ const showOurProductList = () => {
                     style: "currency",
                     currency: "IDR",
                   }).format(item.pilihan[0].harga)}</h4>
-                  <a class="text-dark btn btn-transparent " href="pages/detail.html?id=${
+                  <a class="text-dark btn btn-transparent " href="?id=${
                     item.id
                   }"><span class="text-decoration-underline">Tambah
                           Keranjang</span></a>
@@ -268,7 +270,7 @@ const showHeroProductList = () => {
                     style: "currency",
                     currency: "IDR",
                   }).format(item.pilihan[0].harga)}</h4>
-                  <a class="text-dark btn btn-transparent " href="pages/detail.html?id=${
+                  <a class="text-dark btn btn-transparent " href="?id=${
                     item.id
                   }"><span class="text-decoration-underline">Tambah
                           Keranjang</span></a>
