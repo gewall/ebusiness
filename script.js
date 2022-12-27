@@ -241,6 +241,66 @@ const showHeroProductList = () => {
   });
 };
 
+const handleCart = () => {
+  const getItem = localStorage.getItem("keranjang");
+  const convGetItem = JSON.parse(getItem);
+
+  const kuantitas = document.getElementById("kuantitas-keranjang") || 1;
+  console.log(kuantitas);
+  const listId = document.getElementById("list-keranjang");
+
+  convGetItem.map((item, i) => {
+    listId.innerHTML += `
+    <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4" id="foto-keranjang">
+            <img src="../imgs/${
+              item.imgs[0]
+            }.jpg" class="img-fluid rounded-start" alt="${item.nama}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title" id="nama-keranjang">${item.nama}</h5>
+                <div class="">
+                    <label for="exampleFormControlInput1" class="form-label">Kuantitas</label>
+                    <input type="number" class="form-control" id="kuantitas-keranjang"
+                        placeholder="Masukan jumlah barang" value="1" readonly>
+                </div>
+                <div>
+                    <p class="m-0">Harga</p>
+                    <p class="m-0" id="harga-keranjang">${new Intl.NumberFormat(
+                      "ID-id",
+                      {
+                        style: "currency",
+                        currency: "IDR",
+                      }
+                    ).format(item.pilihan[0].harga * kuantitas)}</p>
+                </div>
+                <div class="my-2">
+                    <Button class="btn btn-danger" onClick="handleCartRemove(${
+                      item.id
+                    })">Hapus</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    `;
+  });
+};
+
+const handleCartRemove = (id) => {
+  console.log(id);
+
+  const getItem = localStorage.getItem("keranjang");
+  const convGetItem = JSON.parse(getItem);
+
+  const newItem = convGetItem.filter((a) => a.id !== id);
+
+  const convNewItem = JSON.stringify(newItem);
+  localStorage.setItem("keranjang", convNewItem);
+};
+
 const tooltipTriggerList = document.querySelectorAll(
   '[data-bs-toggle="tooltip"]'
 );
@@ -251,3 +311,5 @@ const tooltipList = [...tooltipTriggerList].map(
 showTopProductList();
 showOurProductList();
 showHeroProductList();
+handleCart();
+handleCartRemove();

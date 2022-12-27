@@ -168,6 +168,30 @@ const catalogList = [
   },
 ];
 
+const handleCartInput = () => {
+  let _cart = [];
+  const params = window.location.search;
+  const search = new URLSearchParams(params);
+  const id = search.get("id");
+
+  const item = catalogList.find((i) => parseInt(i.id) === parseInt(id));
+  const idButton = document.getElementById("masuk-keranjang");
+
+  const _currCart = localStorage.getItem("keranjang");
+  // console.log(_currCart);
+  const convCurrCart = JSON.parse(_currCart);
+  console.log(convCurrCart);
+  _cart = convCurrCart !== null ? [...convCurrCart] : [];
+
+  idButton.addEventListener("click", (e) => {
+    const cart = [..._cart, item];
+
+    console.log(cart);
+    const convItem = JSON.stringify(cart);
+    localStorage.setItem("keranjang", convItem);
+  });
+};
+
 const handleTipe = () => {
   const type = document.querySelectorAll('input[type="radio"]');
 
@@ -259,7 +283,9 @@ const showHeroProductList = () => {
     heroProductId.innerHTML += `
     <div class="col">
           <div class="d-flex flex-column x-card bg-white" >
-              <img src="../imgs/${item.imgs[0]}.jpg" class="card-img-top "
+              <img src="../imgs/${
+                item.imgs[0]
+              }.jpg" class="img-fluid rounded-start"
                   style="height: 280px; object-fit: cover;" alt="...">
               <div class="card-body x-card-body my-2">
                   <h5 class="fs-5">${item.nama}</h5>
@@ -281,6 +307,66 @@ const showHeroProductList = () => {
   });
 };
 
+const handleCart = () => {
+  const getItem = localStorage.getItem("keranjang");
+  const convGetItem = JSON.parse(getItem);
+
+  const kuantitas = document.getElementById("kuantitas-keranjang") || 1;
+  console.log(kuantitas);
+  const listId = document.getElementById("list-keranjang");
+
+  convGetItem.map((item, i) => {
+    listId.innerHTML += `
+    <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4" id="foto-keranjang">
+            <img src="../imgs/${
+              item.imgs[0]
+            }.jpg" class="img-fluid rounded-start" alt="${item.nama}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title" id="nama-keranjang">${item.nama}</h5>
+                <div class="">
+                    <label for="exampleFormControlInput1" class="form-label">Kuantitas</label>
+                    <input type="number" class="form-control" id="kuantitas-keranjang"
+                        placeholder="Masukan jumlah barang" value="1" readonly>
+                </div>
+                <div>
+                    <p class="m-0">Harga</p>
+                    <p class="m-0" id="harga-keranjang">${new Intl.NumberFormat(
+                      "ID-id",
+                      {
+                        style: "currency",
+                        currency: "IDR",
+                      }
+                    ).format(item.pilihan[0].harga * kuantitas)}</p>
+                </div>
+                <div class="my-2">
+                    <Button class="btn btn-danger" onClick="handleCartRemove(${
+                      item.id
+                    })">Hapus</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    `;
+  });
+};
+
+const handleCartRemove = (id) => {
+  console.log(id);
+
+  const getItem = localStorage.getItem("keranjang");
+  const convGetItem = JSON.parse(getItem);
+
+  const newItem = convGetItem.filter((a) => a.id !== id);
+
+  const convNewItem = JSON.stringify(newItem);
+  localStorage.setItem("keranjang", convNewItem);
+};
+
 const tooltipTriggerList = document.querySelectorAll(
   '[data-bs-toggle="tooltip"]'
 );
@@ -293,3 +379,5 @@ showOurProductList();
 getDetailProduct();
 handleTipe();
 setPrice(0);
+handleCartInput();
+handleCart();
