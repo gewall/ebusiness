@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
     <link rel="stylesheet" href="../style.css">
 </head>
 </head>
@@ -23,6 +23,18 @@
             <a href="https://www.instagram.com/" target="_blank" class="text-dark" data-bs-toggle="tooltip"
                 data-bs-title="instagram">
                 <i class="bi bi-instagram "></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" class="text-dark" data-bs-toggle="tooltip"
+                data-bs-title="facebook">
+                <i class="bi bi-facebook "></i>
+            </a>
+            <a href="https://www.twitter.com/" target="_blank" class="text-dark" data-bs-toggle="tooltip"
+                data-bs-title="twitter">
+                <i class="bi bi-twitter "></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" class="text-dark" data-bs-toggle="tooltip"
+                data-bs-title="youtube">
+                <i class="bi bi-youtube "></i>
             </a>
         </div>
     </div>
@@ -65,8 +77,46 @@
         <div class="offcanvas-body" id="list-keranjang">
 
         </div>
+        <hr>
+        <div class="mx-4 my-2 mb-4">
+            <p id="total-keranjang"></p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Pesan Sekarang
+            </button>
+        </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pesan Sekarang</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here"
+                            id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Alamat</label>
+                    </div>
+                    <div class="my-2">
+                        <p>Pilihan Anda :</p>
+                        <div>
+                            <ul class="list-group" id="list-pesanan">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <p id="total-pesanan"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                    <button type="button" class="btn btn-primary">Pesan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- <div id=" carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -179,8 +229,37 @@
     </div>
 
     <footer id="kontak">
+
         <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
             <p>IKUTI KAMI DI INSTAGRAM</p>
+        </div>
+
+        <div class=" container-lg">
+            <h5 class="fs-5 fw-semibold">PAYMENT OPTIONS</h5>
+            <div class="my-4">
+                <span class="dc_payment_icons_bevel_48 dc_visa_bevel" title="Visa"></span>
+                <span class="dc_payment_icons_bevel_48 dc_visa02_bevel" title="Visa"></span>
+                <span class="dc_payment_icons_bevel_48 dc_mastercard_bevel" title="Mastercard"></span>
+                <span class="dc_payment_icons_bevel_48 dc_americanexpress_bevel" title="American Express"></span>
+                <span class="dc_payment_icons_bevel_48 dc_americanexpress02_bevel" title="American Express"></span>
+                <span class="dc_payment_icons_bevel_48 dc_discover_bevel" title="Discover"></span>
+                <span class="dc_payment_icons_bevel_48 dc_dinersclub_bevel" title="Diners Club"></span>
+                <span class="dc_payment_icons_bevel_48 dc_visaelectron_bevel" title="Visa Electron"></span>
+                <span class="dc_payment_icons_bevel_48 dc_maestro_bevel" title="Maestro"></span>
+                <span class="dc_payment_icons_bevel_48 dc_cirrus_bevel" title="Cirrus"></span>
+                <span class="dc_payment_icons_bevel_48 dc_westernunion02_bevel" title="Western Union"></span>
+                <span class="dc_payment_icons_bevel_48 dc_switch_bevel" title="Switch"></span>
+                <span class="dc_payment_icons_bevel_48 dc_delta_bevel" title="Delta"></span>
+                <span class="dc_payment_icons_bevel_48 dc_solo_bevel" title="Solo"></span>
+                <span class="dc_payment_icons_bevel_48 dc_westernunion_bevel" title="Western Union"></span>
+                <span class="dc_payment_icons_bevel_48 dc_paypal_bevel" title="PayPal"></span>
+                <span class="dc_payment_icons_bevel_48 dc_worldpay_bevel" title="WorldPay"></span>
+                <span class="dc_payment_icons_bevel_48 dc_westernunion03_bevel" title="Western Union"></span>
+                <span class="dc_payment_icons_bevel_48 dc_egold_bevel" title="Egold"></span>
+                <span class="dc_payment_icons_bevel_48 dc_wirecard_bevel" title="Wire"></span>
+                <span class="dc_payment_icons_bevel_48 dc_directdebit_bevel" title="Direct Debit"></span>
+            </div>
+
         </div>
         <div class="container-lg mx-auto d-flex gap-5">
             <div class="">
@@ -196,15 +275,25 @@
                 <div class="my-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link nav-text p-0" aria-current="page" href="../index.html">Beranda</a>
+                            <a class="nav-link nav-text p-0" aria-current="page" href="#">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-text p-0" href="produk.html">Produk</a>
+                            <a class="nav-link nav-text p-0" href="#produk">Produk</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-text p-0" href="#kontak">Kontak</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-text p-0" href="./about.html">About us</a>
+                        </li>
                     </ul>
+                </div>
+            </div>
+            <div class="">
+                <h5 class="fs-5 fw-semibold">CUSTOMER CARE</h5>
+                <div class="my-4">
+                    <p class="mb-0">Whatsapp : 000000000000</p>
+                    <p class="mb-0">Email : abcd@gmail.com</p>
                 </div>
             </div>
         </div>

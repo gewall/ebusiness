@@ -307,15 +307,57 @@ const showHeroProductList = () => {
   });
 };
 
+const handlePesanan = () => {
+  const getItem = localStorage.getItem("keranjang");
+  const convGetItem = JSON.parse(getItem);
+
+  const listId = document.getElementById("list-pesanan");
+  const totalId = document.getElementById("total-pesanan");
+  let totalHarga = 0;
+
+  convGetItem.map((item, i) => {
+    totalId.innerHTML = `total: ${new Intl.NumberFormat("ID-id", {
+      style: "currency",
+      currency: "IDR",
+    }).format((totalHarga += item.pilihan[0].harga))}`;
+    listId.innerHTML += `
+    <li class="list-group-item">
+    <div class="row flex-nowrap">
+        <div class="col">
+            <img src="../imgs/${
+              item.imgs[0]
+            }.jpg" class="img-fluid rounded-start" alt="${
+      item.nama
+    }" width="200" height="200">
+        </div>
+        <div class="col">
+            <p>${item.nama}</p>
+            <p>Harga : ${new Intl.NumberFormat("ID-id", {
+              style: "currency",
+              currency: "IDR",
+            }).format((totalHarga += item.pilihan[0].harga))}</p>
+        </div>
+    </div>
+</li>
+    `;
+  });
+};
+
 const handleCart = () => {
   const getItem = localStorage.getItem("keranjang");
   const convGetItem = JSON.parse(getItem);
 
   const kuantitas = document.getElementById("kuantitas-keranjang") || 1;
-  console.log(kuantitas);
+  const totalId = document.getElementById("total-keranjang");
+  let totalHarga = 0;
+
   const listId = document.getElementById("list-keranjang");
 
   convGetItem.map((item, i) => {
+    totalId.innerHTML = `total: ${new Intl.NumberFormat("ID-id", {
+      style: "currency",
+      currency: "IDR",
+    }).format((totalHarga += item.pilihan[0].harga))}`;
     listId.innerHTML += `
     <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
@@ -381,3 +423,4 @@ handleTipe();
 setPrice(0);
 handleCartInput();
 handleCart();
+handlePesanan();
