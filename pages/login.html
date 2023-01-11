@@ -112,6 +112,13 @@
                     </div>
                     <p id="total-pesanan"></p>
 
+                    <select class="form-select" aria-label="Pilih Ekspedisi">
+                        <option selected>Buka untuk melihat ekspedisi</option>
+                        <option value="1">JNT</option>
+                        <option value="2">JNE</option>
+                        <option value="3">Sicepat</option>
+                        <option value="3">Ninja Express</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -162,47 +169,51 @@
     <div class="container-lg mx-auto row w-100 " id="list-produk-kami">
 
     </div> -->
-    <div style=" height: 150px;"></div>
+    <!-- <div style=" height: 150px;"></div> -->
 
-
-    <div class="row container-lg mx-auto">
-        <div class="col">
-            <div class="card p-4 bg-light">
-                <h4 class="fs-4 fw-semibold">Login</h4>
-                <div class="my-4">
-                    <div class="my-2">
-                        <label for="exampleFormControlInput1" class="form-label">Alamat Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
+    <div class="" style="background: rgb(255,255,255);
+    background: linear-gradient(-120deg, rgba(255,255,255,1) 23%, rgba(0,212,255,1) 100%);">
+        <div style=" height: 100px;"></div>
+        <div class="row container-lg mx-auto">
+            <div class="col">
+                <div class="card p-4 bg-light">
+                    <h4 class="fs-4 fw-semibold">Login</h4>
+                    <div class="my-4">
+                        <div class="my-2">
+                            <label for="exampleFormControlInput1" class="form-label">Alamat Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="my-2">
+                            <label for="exampleFormControlInput2" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleFormControlInput2">
+                        </div>
                     </div>
-                    <div class="my-2">
-                        <label for="exampleFormControlInput2" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleFormControlInput2">
-                    </div>
+                    <button class="btn btn-dark">Login</button>
                 </div>
-                <button class="btn btn-dark">Login</button>
+            </div>
+            <div class=" col">
+                <div class="card p-4">
+                    <h4 class="fs-4 fw-semibold">Register</h4>
+                    <div class="my-4">
+                        <div class="my-2">
+                            <label for="exampleFormControlInput1" class="form-label">Alamat Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="my-2">
+                            <label for="exampleFormControlInput2" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleFormControlInput2">
+                        </div>
+                    </div>
+                    <button class="btn btn-dark">Register</button>
+                </div>
             </div>
         </div>
-        <div class=" col">
-            <div class="card p-4">
-                <h4 class="fs-4 fw-semibold">Register</h4>
-                <div class="my-4">
-                    <div class="my-2">
-                        <label for="exampleFormControlInput1" class="form-label">Alamat Email</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-                    <div class="my-2">
-                        <label for="exampleFormControlInput2" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleFormControlInput2">
-                    </div>
-                </div>
-                <button class="btn btn-dark">Register</button>
-            </div>
-        </div>
+        <div style=" height: 100px;"></div>
     </div>
 
-    <div style=" height: 150px;"></div>
+    <!-- <div style=" height: 150px;"></div> -->
 
 
     <div class=" d-flex align-items-center"
@@ -213,7 +224,8 @@
         </div>
     </div>
 
-    <footer id="kontak">
+    <footer id="kontak" class="py-1" style="background: rgb(255,255,255);
+    background: linear-gradient(-120deg, rgba(255,255,255,1) 23%, rgba(0,255,37,1) 100%);">
 
         <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
             <p>IKUTI KAMI DI INSTAGRAM</p>
@@ -246,8 +258,8 @@
             </div>
 
         </div>
-        <div class="container-lg mx-auto d-flex gap-5">
-            <div class="">
+        <div class="container-lg mx-auto d-flex gap-5 row">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">EBUSINESS</h5>
                 <div class="my-4">
                     <h5>Universitas Majalengka</h5>
@@ -255,7 +267,7 @@
                     <p class="mb-0">Email : qwertu@gmail.com</p>
                 </div>
             </div>
-            <div class="">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">QUICKS LINKS</h5>
                 <div class="my-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
@@ -274,7 +286,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">CUSTOMER CARE</h5>
                 <div class="my-4">
                     <p class="mb-0">Whatsapp : 000000000000</p>

@@ -335,7 +335,7 @@ const handlePesanan = () => {
             <p>Harga : ${new Intl.NumberFormat("ID-id", {
               style: "currency",
               currency: "IDR",
-            }).format((totalHarga += item.pilihan[0].harga))}</p>
+            }).format((item.pilihan[0].harga))}</p>
         </div>
     </div>
 </li>

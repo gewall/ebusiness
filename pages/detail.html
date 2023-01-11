@@ -17,7 +17,7 @@
 </head>
 </head>
 
-<body>
+<body class="bg-info">
     <div class="position-fixed" style="bottom: 100px; left: 25px; z-index:999;">
         <div class="d-flex flex-column">
             <a href="https://www.instagram.com/" target="_blank" class="text-dark" data-bs-toggle="tooltip"
@@ -112,6 +112,13 @@
                     </div>
                     <p id="total-pesanan"></p>
 
+                    <select class="form-select" aria-label="Pilih Ekspedisi">
+                        <option selected>Buka untuk melihat ekspedisi</option>
+                        <option value="1">JNT</option>
+                        <option value="2">JNE</option>
+                        <option value="3">Sicepat</option>
+                        <option value="3">Ninja Express</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -160,66 +167,72 @@
         <div class="container-lg mx-auto row w-100 " id="list-produk-kami">
 
         </div> -->
-    <div style=" height: 150px;"></div>
-
-    <div class="container-lg">
-        <div class="mx-auto row flex-column flex-md-row">
-            <div class="col">
-                <h3 class="fs-2" id="nama-produk"></h3>
-                <h3 class="fs-2 fw-bold" id="harga-produk"></h3>
-                <p class="text-success" id="stok-produk"></p>
-                <h5 class="fs-5">Pilihan</h5>
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="pilihan-produk">
-
-                </div>
-                <div class="">
-                    <label for="exampleFormControlInput1" class="form-label">Kuantitas</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Masukan jumlah barang" value="1">
-                </div>
-                <button class="btn btn-dark my-2 w-100" id="masuk-keranjang">Masukan Keranjang</button>
-
-            </div>
-            <div class="col">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner" id="slide-produk">
-
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-            <div class="col">
-                <hr>
-                <h5 class="fs-5 fw-bold">Deskripsi</h5>
-                <p id="deskripsi-produk"></p>
-                <hr>
-                <h5 class="fs-5 fw-bold">Informasi Lainnya</h5>
-                <p>Tidak ada informasi!</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="my-5 d-flex justify-content-center" id="produk">
-        <h2 class="fs-2 text-head d-flex align-items-center text-center">
-            <span class="mx-2">
-                PRODUK LAIN YANG MUNGKIN<br> ANDA SUKA
-            </span>
-        </h2>
-    </div>
-
     <!-- <div style=" height: 150px;"></div> -->
 
-    <div class="container-lg mx-auto row w-100 " id="list-produk-kami">
+    <div class="py-1" style="background: rgb(255,255,255);
+    background: linear-gradient(-120deg, rgba(255,255,255,1) 23%, rgba(255,0,237,1) 100%);">
+        <div style=" height: 100px;"></div>
+        <div class="container-lg">
+            <div class="mx-auto row flex-column flex-md-row">
+                <div class="col">
+                    <h3 class="fs-2" id="nama-produk"></h3>
+                    <h3 class="fs-2 fw-bold" id="harga-produk"></h3>
+                    <p class="text-success" id="stok-produk"></p>
+                    <h5 class="fs-5">Pilihan</h5>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group"
+                        id="pilihan-produk">
 
+                    </div>
+                    <div class="">
+                        <label for="exampleFormControlInput1" class="form-label">Kuantitas</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Masukan jumlah barang" value="1">
+                    </div>
+                    <button class="btn btn-dark my-2 w-100" id="masuk-keranjang">Masukan Keranjang</button>
+
+                </div>
+                <div class="col">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="slide-produk">
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col">
+                    <hr>
+                    <h5 class="fs-5 fw-bold">Deskripsi</h5>
+                    <p id="deskripsi-produk"></p>
+                    <hr>
+                    <h5 class="fs-5 fw-bold">Informasi Lainnya</h5>
+                    <p>Tidak ada informasi!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-5 d-flex justify-content-center" id="produk">
+            <h2 class="fs-2 text-head d-flex align-items-center text-center">
+                <span class="mx-2">
+                    PRODUK LAIN YANG MUNGKIN<br> ANDA SUKA
+                </span>
+            </h2>
+        </div>
+
+        <!-- <div style=" height: 150px;"></div> -->
+
+        <div class="container-lg mx-auto row w-100 " id="list-produk-kami">
+
+        </div>
+        <div style=" height: 100px;"></div>
     </div>
 
 
@@ -231,7 +244,8 @@
         </div>
     </div>
 
-    <footer id="kontak">
+    <footer id="kontak" class="py-1" style="background: rgb(255,255,255);
+    background: linear-gradient(-120deg, rgba(255,255,255,1) 23%, rgba(0,255,37,1) 100%);">
 
         <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
             <p>IKUTI KAMI DI INSTAGRAM</p>
@@ -264,8 +278,8 @@
             </div>
 
         </div>
-        <div class="container-lg mx-auto d-flex gap-5">
-            <div class="">
+        <div class="container-lg mx-auto d-flex gap-5 row">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">EBUSINESS</h5>
                 <div class="my-4">
                     <h5>Universitas Majalengka</h5>
@@ -273,7 +287,7 @@
                     <p class="mb-0">Email : qwertu@gmail.com</p>
                 </div>
             </div>
-            <div class="">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">QUICKS LINKS</h5>
                 <div class="my-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
@@ -292,7 +306,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">CUSTOMER CARE</h5>
                 <div class="my-4">
                     <p class="mb-0">Whatsapp : 000000000000</p>

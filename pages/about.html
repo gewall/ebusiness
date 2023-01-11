@@ -17,7 +17,7 @@
 </head>
 </head>
 
-<body>
+<body class="">
     <div class="position-fixed" style="bottom: 100px; left: 25px; z-index:999;">
         <div class="d-flex flex-column">
             <a href="https://www.instagram.com/" target="_blank" class="text-dark" data-bs-toggle="tooltip"
@@ -112,6 +112,13 @@
                     </div>
                     <p id="total-pesanan"></p>
 
+                    <select class="form-select" aria-label="Pilih Ekspedisi">
+                        <option selected>Buka untuk melihat ekspedisi</option>
+                        <option value="1">JNT</option>
+                        <option value="2">JNE</option>
+                        <option value="3">Sicepat</option>
+                        <option value="3">Ninja Express</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
@@ -178,17 +185,14 @@
 
     <div class="container-lg mx-auto row w-100">
         <h5>YOUR ONLINE BEAUTY DESTINATION</h5>
-        <p> Nayanika is Indonesia's trusted and most complete online shopping destination offering authentic beauty
-            products e.g. make up, skin care, hair care, fragrance and beauty tools serving women across Indonesia.</p>
+        <p> Nayanika is Indonesia's trusted and most complete online shopping destination offering variety mirror
+            products.</p>
 
-        <h5> ONLY THE AUTHENTIC AND BPOM CERTIFIED</h5>
-        <p>Quality and authenticity of beauty product is akin to the importance of taking care of your own skin, a
-            necessity to all women and Nayanika takes it very seriously. Usage of non-original or fraudulent beauty
-            products could lead to permanent skin damage.</p>
+        <h5>THE ONLY AESTHETIC AND AUTHENTIC</h5>
+        <p>Quality and authenticity of beauty product to radiate maximum self-beauty.</p>
 
         <p>This has prompted Nayanika to collaborate directly with authorized national distributors and brand owners in
-            Indonesia to ensure that every product you purchase from Nayanika are original and authentic, with the
-            certification from Badan Pengawas Obat dan Makanan (‘BPOM’).</p>
+            Indonesia to ensure that every product you purchase from Nayanika are original and authentic.</p>
 
         <p>Quality assurance of product storage is performed directly by Nayanika's own operations management with
             compliance to international standards and storage guideline by the brand owners.</p>
@@ -198,8 +202,8 @@
             delivery is performed smoothly and product return can be completed hassle-free.</p>
 
         <h5>YOUR DAILY READ OF ALL THINGS BEAUTY</h5>
-        <p>Inspired to be your trusted beauty advisor, Nayanika presents you the Beauty Journal, an online beauty media
-            portal dedicated for women to explore and develop their own unique beauty style, while receiving the latest
+        <p>Inspired to be your trusted beauty advisor,Nayanika presents you the beauty journal of decoration to make
+            your room more beautiful and varied, while receiving the latest
             information on trend and brand developments.</p>
 
         <p>We hope you enjoy your shopping experience with Nayanika.</p>
@@ -216,7 +220,8 @@
         </div>
     </div>
 
-    <footer id="kontak">
+    <footer id="kontak" class="py-1" style="background: rgb(255,255,255);
+    background: linear-gradient(-120deg, rgba(255,255,255,1) 23%, rgba(0,255,37,1) 100%);">
 
         <div class="d-flex justify-content-center align-items-center" style="height: 150px;">
             <p>IKUTI KAMI DI INSTAGRAM</p>
@@ -249,8 +254,8 @@
             </div>
 
         </div>
-        <div class="container-lg mx-auto d-flex gap-5">
-            <div class="">
+        <div class="container-lg mx-auto d-flex gap-5 row">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">EBUSINESS</h5>
                 <div class="my-4">
                     <h5>Universitas Majalengka</h5>
@@ -258,7 +263,7 @@
                     <p class="mb-0">Email : qwertu@gmail.com</p>
                 </div>
             </div>
-            <div class="">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">QUICKS LINKS</h5>
                 <div class="my-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
@@ -277,7 +282,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="">
+            <div class="col">
                 <h5 class="fs-5 fw-semibold">CUSTOMER CARE</h5>
                 <div class="my-4">
                     <p class="mb-0">Whatsapp : 000000000000</p>
